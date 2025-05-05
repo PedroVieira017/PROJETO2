@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+
+<BorderPane fx:id="mainPane" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.ipvc.projeto2Final.controllers.HomeController">
+
+    <!-- NAVBAR -->
+    <top>
+        <HBox spacing="20" style="-fx-background-color: #003580;">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <Label text="HotelApp" style="-fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;" />
+            <Region fx:id="spacer" HBox.hgrow="ALWAYS" />
+            <MenuBar style="-fx-background-color: transparent;">
+                <Menu text="Gestão" style="-fx-text-fill: white;">
+                    <MenuItem text="Hóspedes" onAction="#handleHospedes"/>
+                    <MenuItem text="Quartos" onAction="#handleQuartos"/>
+                    <MenuItem text="Reservas" onAction="#handleReservas"/>
+                </Menu>
+                <Menu text="Relatórios" style="-fx-text-fill: white;">
+                    <MenuItem text="Ver Relatórios" onAction="#handleRelatorios"/>
+                </Menu>
+                <Menu text="Conta" style="-fx-text-fill: white;">
+                    <MenuItem text="Sair" onAction="#handleExit"/>
+                </Menu>
+            </MenuBar>
+        </HBox>
+    </top>
+
+    <!-- CONTEÚDO CENTRAL -->
+    <center>
+        <VBox alignment="CENTER" spacing="15">
+            <padding>
+                <Insets top="30" right="30" bottom="30" left="30"/>
+            </padding>
+            <Label text="Bem-vindo à Gestão do Hotel!" style="-fx-font-size: 26px; -fx-font-weight: bold;" />
+            <Button text="Aceder à Dashboard" style="-fx-background-color: #0071c2; -fx-text-fill: white; -fx-font-size: 14px;"
+                    onAction="#handleDashboard"/>
+        </VBox>
+    </center>
+
+</BorderPane>

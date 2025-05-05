@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.ipvc.projeto2Final.controllers.ReservaController">
+
+    <top>
+        <ToolBar style="-fx-background-color: #0078D7;">
+            <Label text="Gestão de Reservas" style="-fx-text-fill: white; -fx-font-size: 18px;" />
+            <Pane HBox.hgrow="ALWAYS" />
+            <Button text="Nova Reserva" fx:id="btnNovaReserva" onAction="#handleNovaReserva" />
+        </ToolBar>
+    </top>
+
+    <center>
+        <TableView fx:id="tabelaReservas">
+            <columns>
+                <TableColumn fx:id="colHospede" text="Hóspede" prefWidth="200" />
+                <TableColumn fx:id="colQuarto" text="Quarto" prefWidth="100" />
+                <TableColumn fx:id="colData" text="Check-in" prefWidth="150" />
+                <TableColumn fx:id="colEditar" text="Editar" prefWidth="100" />
+                <TableColumn fx:id="colCancelar" text="Cancelar" prefWidth="100" />
+            </columns>
+        </TableView>
+    </center>
+
+</BorderPane>

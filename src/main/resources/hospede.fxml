@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.ipvc.projeto2Final.controllers.HospedeController">
+
+    <top>
+        <ToolBar>
+            <Button text="Novo Hóspede" onAction="#handleNovoHospede" fx:id="btnNovoHospede" />
+        </ToolBar>
+    </top>
+
+    <center>
+        <TableView fx:id="tabelaHospedes">
+            <columns>
+                <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                <TableColumn fx:id="colNome" text="Nome" prefWidth="200"/>
+                <TableColumn fx:id="colEmail" text="Email" prefWidth="250"/>
+                <TableColumn fx:id="colTelefone" text="Telefone" prefWidth="150"/>
+            </columns>
+        </TableView>
+    </center>
+
+</BorderPane>

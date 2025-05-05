@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.ipvc.projeto2Final.controllers.NovaReservaController" prefWidth="400" prefHeight="400">
+    <VBox spacing="10" alignment="CENTER" layoutX="50" layoutY="30">
+        <ComboBox fx:id="comboHospede" promptText="Selecionar Hóspede" />
+        <ComboBox fx:id="comboQuarto" promptText="Selecionar Quarto" />
+        <DatePicker fx:id="dataCheckIn" promptText="Data Check-in" />
+        <DatePicker fx:id="dataCheckOut" promptText="Data Check-out" />
+        <Button fx:id="btnGuardar" text="Guardar Reserva" onAction="#handleGuardar"/>
+    </VBox>
+</AnchorPane>
+
