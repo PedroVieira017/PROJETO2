@@ -22,7 +22,7 @@ public class Main extends Application {
         SpringFXMLLoader loader = context.getBean(SpringFXMLLoader.class);
         Parent root = loader.load("/login.fxml");
         stage.setScene(new Scene(root));
-        stage.setTitle("Hotel Login");
+        stage.setTitle("Hotel Loginteste");
         stage.show();
     }
 
