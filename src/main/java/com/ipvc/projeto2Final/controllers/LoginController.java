@@ -1,6 +1,8 @@
 package com.ipvc.projeto2Final.controllers;
 
 import com.ipvc.projeto2Final.SpringFXMLLoader;
+import com.ipvc.projeto2Final.models.Hospede;
+import com.ipvc.projeto2Final.services.HospedeService;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -23,23 +25,32 @@ public class LoginController {
     @Autowired
     private SpringFXMLLoader springFXMLLoader;
 
+    @Autowired
+    private HospedeService hospedeService;
+
     @FXML
     private void handleLogin() {
-        String username = usernameField.getText();
-        String password = passwordField.getText();
+        String email = usernameField.getText().trim();
+        String password = passwordField.getText().trim();
 
-        if (username.equals("admin@email.com") && password.equals("admin123")) {
-            try {
-                Parent root = springFXMLLoader.load("/dashboard.fxml");
-                Stage stage = (Stage) usernameField.getScene().getWindow();
-                stage.setScene(new Scene(root));
-                stage.setTitle("Dashboard");
-            } catch (Exception e) {
-                e.printStackTrace();
-                showAlert(Alert.AlertType.ERROR, "Erro ao abrir o dashboard.");
+        hospedeService.findByEmail(email).ifPresentOrElse(h -> {
+            if (h.getPassword().equals(password)) {
+                abrirDashboard();
+            } else {
+                showAlert(Alert.AlertType.ERROR, "Password incorreta.");
             }
-        } else {
-            showAlert(Alert.AlertType.ERROR, "Credenciais inválidas.");
+        }, () -> showAlert(Alert.AlertType.ERROR, "Utilizador não encontrado."));
+    }
+
+    private void abrirDashboard() {
+        try {
+            Parent root = springFXMLLoader.load("/dashboard.fxml");
+            Stage stage = (Stage) usernameField.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Dashboard");
+        } catch (Exception e) {
+            e.printStackTrace();
+            showAlert(Alert.AlertType.ERROR, "Erro ao abrir o dashboard.");
         }
     }
 

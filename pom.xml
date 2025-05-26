@@ -13,7 +13,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>17</java.version>
         <exec.mainClass>com.ipvc.projeto2Final.JavaFXApp.Main</exec.mainClass>
-        <javafx.version>24.0.1</javafx.version>
+        <javafx.version>20</javafx.version>
         <spring-boot.version>3.2.5</spring-boot.version>
     </properties>
 
@@ -27,16 +27,6 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
-            <version>${javafx.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-base</artifactId>
-            <version>${javafx.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-graphics</artifactId>
             <version>${javafx.version}</version>
         </dependency>
 
@@ -64,7 +54,7 @@
             <version>42.7.3</version>
         </dependency>
 
-        <!-- Testes: JUnit 5 + Spring Boot Test -->
+        <!-- Testes -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
@@ -92,7 +82,7 @@
         </resources>
 
         <plugins>
-            <!-- Java Compiler -->
+            <!-- Compilador Java -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -103,13 +93,23 @@
                 </configuration>
             </plugin>
 
-            <!-- JavaFX Plugin -->
+            <!-- JavaFX Maven Plugin -->
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <configuration>
-                    <mainClass>com.ipvc.projeto2Final.JavaFXApp.Main</mainClass>
+                    <mainClass>${exec.mainClass}</mainClass>
+                </configuration>
+            </plugin>
+
+            <!-- Spring Boot Plugin para empacotar o fat jar -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot.version}</version>
+                <configuration>
+                    <mainClass>${exec.mainClass}</mainClass>
                 </configuration>
             </plugin>
         </plugins>

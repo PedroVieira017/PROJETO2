@@ -29,4 +29,7 @@ public class HospedeService {
     public void delete(Integer id) {
         hospedeRepository.deleteById(id);
     }
+
+    // HospedeService.java
+    public Optional<Hospede> findByEmail(String email){ return hospedeRepository.findByEmail(email);}
 }
